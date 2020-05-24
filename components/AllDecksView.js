@@ -3,8 +3,14 @@ import { StyleSheet, Text, ScrollView, TouchableOpacity, View } from "react-nati
 import { connect } from "react-redux"
 import { getDeckList } from "../utils/api"
 import { receiveDecks } from "../actions"
+import { AppLoading } from "expo"
+import Deck from './Deck'
 
-class DeckList extends Component {
+class AllDecksView extends Component {
+    state = {
+        ready: false
+    }
+
     componentDidMount() {
         const { dispatch } = this.props
 
@@ -12,10 +18,20 @@ class DeckList extends Component {
             .then(decks => {
                 dispatch(receiveDecks(decks))
             })
+            .then(() =>
+                this.setState(() => ({
+                    ready: true
+                }))
+            )
     }
 
     render() {
         const { decks } = this.props
+        const { ready } = this.state
+
+        if (ready === false) {
+            return <AppLoading />
+        }
 
         if (decks) {
             return (
@@ -24,11 +40,16 @@ class DeckList extends Component {
                         return (
                             <TouchableOpacity
                                 key={title}
+                                onPress={() =>
+                                    this.props.navigation.navigate("DeckView", {
+                                        title: title
+                                    })
+                                }
                             >
-                                <View >
-                                    <Text >{decks[title].title}</Text>
-                                    <Text >{decks[title].questions.length}</Text>
-                                </View>
+                                <Deck
+                                    title={decks[title].title}
+                                    numberOfCards={decks[title].questions.length}
+                                />
                             </TouchableOpacity>
                         )
                     })}
@@ -44,4 +65,4 @@ const mapStateToProps = decks => {
     }
 }
 
-export default connect(mapStateToProps)(DeckList)
+export default connect(mapStateToProps)(AllDecksView)
