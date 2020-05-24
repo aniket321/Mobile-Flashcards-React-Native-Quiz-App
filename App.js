@@ -6,6 +6,7 @@ import reducer from "./reducers"
 import middleware from './middleware'
 import AllDecksView from './components/AllDecksView'
 import AddDeck from './components/AddDeck'
+import AddCard from './components/AddCard'
 
 
 export default class App extends React.Component {
@@ -16,8 +17,9 @@ export default class App extends React.Component {
                 <View style>
                     <Text style={styles.welcome}>This is react</Text>
                 </View>
-                {/* <AllDecksView /> */}
+                <AllDecksView />
                 {/* <AddDeck /> */}
+                {/* <AddCard /> */}
             </Provider>
         )
     }

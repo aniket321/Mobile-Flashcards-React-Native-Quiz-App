@@ -17,6 +17,8 @@ export const addCard = (card, deckTitle) => {
     }
 }
 
+//color removed from json
+
 export const addDeck = ({ title }) => {
     return {
         type: ADD_DECK,

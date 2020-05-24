@@ -27,6 +27,7 @@ export const addNewDeck = (deck) => {
 }
 
 export const addNewCard = (card, id) => {
+    console.log('in api')
     getDeck(id)
         .then((deck) => {
             deck.questions = deck.questions.concat(card)
