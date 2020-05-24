@@ -1,0 +1,17 @@
+{
+  "name": "Mobile-FlashCards",
+  "displayName": "Mobile-FlashCards",
+  "expo": {
+    "name": "Mobile-FlashCards",
+    "slug": "expo-template-bare",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
