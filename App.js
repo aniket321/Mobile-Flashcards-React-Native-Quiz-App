@@ -14,6 +14,16 @@ import Navigation from "./components/Navigation"
 import { black, white } from "./utils/colors"
 import { setLocalNotification } from "./utils/helper"
 
+const FlashCardsStatusBar = ({ backgroundColor, ...props }) => {
+    return (
+        <SafeAreaView
+            style={{ backgroundColor, height: Constants.statusBarHeight }}
+        >
+            <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+        </SafeAreaView>
+    )
+}
+
 export default class App extends React.Component {
     componentDidMount() {
         setLocalNotification()
@@ -23,6 +33,10 @@ export default class App extends React.Component {
         return (
             <Provider store={store}>
                 <View style={styles.container}>
+                    <FlashCardsStatusBar
+                        backgroundColor={black}
+                        barStyle="light-content"
+                    />
                     <Navigation />
                 </View>
             </Provider>
