@@ -25,7 +25,7 @@ class AddDeck extends React.Component {
 
         addNewDeck(deck)
         this.props.dispatch(addDeck(deck))
-
+        this.props.goBack()
     }
 
     render() {
@@ -49,6 +49,11 @@ class AddDeck extends React.Component {
     }
 }
 
+const mapStateToProps = (state, { navigation }) => {
+    return {
+        goBack: () => navigation.goBack()
+    }
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -77,4 +82,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect()(AddDeck)
+export default connect(mapStateToProps)(AddDeck)

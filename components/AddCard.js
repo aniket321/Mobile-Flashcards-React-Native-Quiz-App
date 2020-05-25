@@ -4,16 +4,20 @@ import {
     Text,
     View,
     TextInput,
-    TouchableOpacity,
     KeyboardAvoidingView
 } from "react-native"
 import { connect } from "react-redux"
 import { addCard } from "../actions"
 import { addNewCard } from "../utils/api"
-import { purple, white, black } from "../utils/colors"
+import { black } from "../utils/colors"
 import Button from './Button'
 
 class AddCard extends React.Component {
+    static navigationOptions = () => {
+        return {
+            title: "New Card"
+        }
+    }
 
     constructor(props) {
         super(props)
@@ -35,6 +39,7 @@ class AddCard extends React.Component {
 
         addNewCard(card, deckTitle)
         this.props.dispatch(addCard(card, deckTitle))
+        this.props.goBack()
     }
 
     render() {
@@ -69,6 +74,14 @@ class AddCard extends React.Component {
     }
 }
 
+const mapStateToProps = (state, { navigation }) => {
+    const { deckTitle } = navigation.state.params
+
+    return {
+        deckTitle,
+        goBack: () => navigation.goBack()
+    }
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -97,4 +110,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect()(AddCard)
+export default connect(mapStateToProps)(AddCard)
