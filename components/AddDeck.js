@@ -17,7 +17,7 @@ class AddDeck extends React.Component {
         this.state = { title: "" }
     }
 
-    submit = () => {
+    handleSubmit = () => {
         const deck = this.state
         this.setState(() => ({
             title: "",
@@ -40,7 +40,7 @@ class AddDeck extends React.Component {
                     value={this.state.title}
                 />
                 <Button
-                    onPress={this.submit}
+                    onPress={this.handleSubmit}
                     disabled={this.state.title === ""}
                     btnText="Submit"
                 />
