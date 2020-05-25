@@ -56,7 +56,7 @@ class AddCard extends React.Component {
                 <View style={styles.container}>
                     <Text style={styles.title}>
                         Provide Question and Answer
-                </Text>
+                    </Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={question => this.setState({ question })}

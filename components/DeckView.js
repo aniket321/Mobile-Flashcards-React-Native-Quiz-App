@@ -32,7 +32,6 @@ class DeckView extends Component {
                         onPress={() =>
                             this.props.navigation.navigate("AddCard", {
                                 deckTitle: deck.title,
-                                deckColor: green
                             })
                         }
                     />

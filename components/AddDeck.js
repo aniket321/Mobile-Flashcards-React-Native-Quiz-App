@@ -34,7 +34,11 @@ class AddDeck extends React.Component {
 
         addNewDeck(deck)
         this.props.dispatch(addDeck(deck))
-        this.props.previousView()
+        this.props.navigation.navigate("DeckView", {
+            title: this.state.title
+        })
+
+        // this.props.previousView()
     }
 
     render() {
@@ -58,11 +62,11 @@ class AddDeck extends React.Component {
     }
 }
 
-const mapStateToProps = (state, { navigation }) => {
-    return {
-        previousView: () => navigation.goBack()
-    }
-}
+// const mapStateToProps = (state, { navigation }) => {
+//     return {
+//         previousView: () => navigation.goBack()
+//     }
+// }
 
 const styles = StyleSheet.create({
     container: {
@@ -91,4 +95,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect(mapStateToProps)(AddDeck)
+export default connect()(AddDeck)
