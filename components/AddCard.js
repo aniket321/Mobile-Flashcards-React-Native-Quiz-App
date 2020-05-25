@@ -50,6 +50,20 @@ class AddCard extends React.Component {
         this.props.previousView()
     }
 
+    handleTextChange = (value, type) => {
+        type === "question" ?
+            (
+                this.setState({
+                    question: value
+                })
+            ) :
+            (
+                this.setState({
+                    answer: value
+                })
+            )
+    }
+
     render() {
         return (
             <KeyboardAvoidingView>
@@ -59,14 +73,14 @@ class AddCard extends React.Component {
                     </Text>
                     <TextInput
                         style={styles.input}
-                        onChangeText={question => this.setState({ question })}
+                        onChangeText={(question) => this.handleTextChange(question, "question")}
                         value={this.state.question}
                         placeholder={"Add a question"}
                         placeholderTextColor={black}
                     />
                     <TextInput
                         style={styles.input}
-                        onChangeText={answer => this.setState({ answer })}
+                        onChangeText={(answer) => this.handleTextChange(answer, "answer")}
                         value={this.state.answer}
                         placeholder={"Add the answer"}
                         placeholderTextColor={black}

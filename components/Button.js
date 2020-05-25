@@ -24,26 +24,6 @@ const Button = (props) => {
     )
 }
 
-// export default class Button extends Component {
-
-//     render() {
-//         const { onPress, disabled, btnText } = this.props
-//         return (
-//             <TouchableOpacity
-//                 style={[styles.button, disabled && styles.disabledBtn]}
-//                 onPress={onPress}
-//                 disabled={disabled}
-//             >
-//                 <Text
-//                     style={styles.btnText}
-//                 >
-//                     {btnText}
-//                 </Text>
-//             </TouchableOpacity>
-//         )
-//     }
-// }
-
 const styles = StyleSheet.create({
     button: {
         backgroundColor: black,
