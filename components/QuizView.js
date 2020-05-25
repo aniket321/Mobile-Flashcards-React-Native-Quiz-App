@@ -61,7 +61,8 @@ class QuizView extends Component {
 
         this.setState(() => ({
             score: score,
-            questionNumber: questionNumber
+            questionNumber: questionNumber,
+            showAnswer: false
         }))
 
     }
