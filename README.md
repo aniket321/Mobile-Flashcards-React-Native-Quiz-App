@@ -26,7 +26,7 @@ Technologies:
 
 ## Screenshots:
 
-![Alt text](/assets/screenshots/AllDeckView.png?raw=true "Optional Title")
+<img src="/assets/screenshots/AllDeckView.png" width="100" height="400">
 
 ## Tested On:
 * App is tested on Android 9 device.
