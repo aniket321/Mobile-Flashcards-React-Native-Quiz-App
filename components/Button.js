@@ -2,6 +2,10 @@ import React, { Component } from "react"
 import { StyleSheet, Text, TouchableOpacity, View, Platform } from "react-native"
 import { white, blue, gray, black, purple } from '../utils/colors'
 
+/**
+* @description Customized button to use on all views
+*/
+
 export default class Button extends Component {
 
     render() {

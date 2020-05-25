@@ -1,5 +1,12 @@
 import { RECEIVE_DECKS, ADD_DECK, ADD_CARD } from "../actions/index"
 
+/**
+* @description reducer to return new state
+* @param {object} state
+* @param {object} action
+* @returns {object} new state
+*/
+
 const decks = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_DECKS:

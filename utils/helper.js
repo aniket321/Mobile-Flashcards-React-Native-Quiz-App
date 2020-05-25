@@ -2,52 +2,56 @@ import { AsyncStorage } from "react-native"
 import { Notifications } from "expo"
 import { askAsync, NOTIFICATIONS } from "expo-permissions"
 
-const NOTIFICATION_KEY = "MyFlashCards:notifications"
+/**
+* @description function to cancel the notifications
+*/
 
-export const getDailyReminderValue = () => {
-    return {
-        today: "👋🏻 Don't forget to take a quiz today!"
-    }
-}
+const NOTIFICATION_KEY = "Cards:reminder"
 
-export const clearLocalNotification = () => {
+export const removeNotifications = () => {
     return AsyncStorage.removeItem(NOTIFICATION_KEY).then(
         Notifications.cancelAllScheduledNotificationsAsync
     )
 }
 
-const createNotification = () => {
+/**
+* @description function to create notification object
+* @returns{object} notification object
+*/
+
+const createReminder = () => {
     return {
-        title: "Take a quiz",
-        body: "👋🏻 Don't forget to take a quiz today!",
+        title: "Solve the Quiz",
+        body: "You have now solved the quiz",
         ios: {
             sound: true
         },
         android: {
             sound: true,
-            priority: "high",
-            sticky: false,
             vibrate: true
         }
     }
 }
 
-export const setLocalNotification = () => {
+/**
+* @description function to set the notification
+*/
+
+export const setReminder = () => {
     AsyncStorage.getItem(NOTIFICATION_KEY)
         .then(JSON.parse)
-        .then(data => {
+        .then((data) => {
             if (data === null) {
                 askAsync(NOTIFICATIONS).then(({ status }) => {
                     if (status === "granted") {
                         Notifications.cancelAllScheduledNotificationsAsync()
+                        let nextDay = new Date()
+                        nextDay.setDate(nextDay.getDate() + 1)
+                        nextDay.setHours(9)
+                        nextDay.setMinutes(30)
 
-                        let tomorrow = new Date()
-                        tomorrow.setDate(tomorrow.getDate() + 1)
-                        tomorrow.setHours(10)
-                        tomorrow.setMinutes(30)
-
-                        Notifications.scheduleLocalNotificationAsync(createNotification(), {
-                            time: tomorrow,
+                        Notifications.scheduleLocalNotificationAsync(createReminder(), {
+                            time: nextDay,
                             repeat: "minute"
                         })
 

@@ -1,6 +1,9 @@
 import { AsyncStorage } from "react-native"
 export const STORAGE_KEY = "deckList:decks"
-
+/**
+* @description function store constant decks list when the app is loaded for the first time and set Asyncstorage
+* @returns {object} decklist
+*/
 export const setAsyncStorage = () => {
     const decks = {
         React: {
@@ -29,7 +32,7 @@ export const setAsyncStorage = () => {
     }
     AsyncStorage.removeItem(STORAGE_KEY)
         .then(() => {
-            AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(dummyData))
+            AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(decks))
         })
 
     return decks

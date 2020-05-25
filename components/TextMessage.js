@@ -1,6 +1,9 @@
 import React, { Component } from "react"
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
-import { white, blue, gray, black, purple } from '../utils/colors'
+import { StyleSheet, Text } from "react-native"
+
+/**
+* @description component to show a text message on all views
+*/
 
 export default class TextMessage extends Component {
 

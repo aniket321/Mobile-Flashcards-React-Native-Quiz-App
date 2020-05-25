@@ -12,10 +12,19 @@ import { white, black } from "../utils/colors"
 import Button from './Button'
 
 class AddDeck extends React.Component {
+
+    /**
+    * @description state to record the value of title of newly added deck to dispatch value to store
+    */
+
     constructor(props) {
         super(props)
         this.state = { title: "" }
     }
+
+    /**
+    * @description function to handle submit button to save value of the title to Asyncstorage and dispatch value to store
+    */
 
     handleSubmit = () => {
         const deck = this.state
@@ -25,7 +34,7 @@ class AddDeck extends React.Component {
 
         addNewDeck(deck)
         this.props.dispatch(addDeck(deck))
-        this.props.goBack()
+        this.props.previousView()
     }
 
     render() {
@@ -51,7 +60,7 @@ class AddDeck extends React.Component {
 
 const mapStateToProps = (state, { navigation }) => {
     return {
-        goBack: () => navigation.goBack()
+        previousView: () => navigation.goBack()
     }
 }
 

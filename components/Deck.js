@@ -1,6 +1,10 @@
 import React, { Component } from "react"
 import { StyleSheet, Text, TouchableOpacity, View, Platform } from "react-native"
-import { white, blue, gray, black } from '../utils/colors'
+import { gray } from '../utils/colors'
+
+/**
+* @description Individual card to show a deck on all decks view
+*/
 
 export default class Deck extends Component {
 

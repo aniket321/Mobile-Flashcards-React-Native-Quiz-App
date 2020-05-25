@@ -19,6 +19,10 @@ class AddCard extends React.Component {
         }
     }
 
+    /**
+    * @description state to record the values of question and answer to dispatch values to the store
+    */
+
     constructor(props) {
         super(props)
         this.state = {
@@ -27,6 +31,10 @@ class AddCard extends React.Component {
             deckTitle: this.props.deckTitle
         }
     }
+
+    /**
+    * @description To handle submit button and save values to Asyncstorage and dispatch values to the store
+    */
 
     handleSubmit = () => {
         const { question, answer, deckTitle } = this.state
@@ -39,7 +47,7 @@ class AddCard extends React.Component {
 
         addNewCard(card, deckTitle)
         this.props.dispatch(addCard(card, deckTitle))
-        this.props.goBack()
+        this.props.previousView()
     }
 
     render() {
@@ -79,22 +87,22 @@ const mapStateToProps = (state, { navigation }) => {
 
     return {
         deckTitle,
-        goBack: () => navigation.goBack()
+        previousView: () => navigation.goBack()
     }
 }
 
 const styles = StyleSheet.create({
     container: {
         flexWrap: "wrap",
+        padding: 15,
+        height: "100%",
         justifyContent: "center",
-        padding: 10,
-        height: "100%"
     },
     title: {
         alignSelf: "center",
-        fontSize: 25,
-        marginRight: 10,
-        marginLeft: 10,
+        fontSize: 20,
+        marginRight: 15,
+        marginLeft: 15,
         marginBottom: 20
     },
     input: {

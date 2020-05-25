@@ -12,7 +12,7 @@ import Constants from "expo-constants"
 import middleware from "./middleware"
 import Navigation from "./components/Navigation"
 import { black, white } from "./utils/colors"
-import { setLocalNotification } from "./utils/helper"
+import { setReminder } from "./utils/helper"
 
 const FlashCardsStatusBar = ({ backgroundColor, ...props }) => {
     return (
@@ -26,7 +26,7 @@ const FlashCardsStatusBar = ({ backgroundColor, ...props }) => {
 
 export default class App extends React.Component {
     componentDidMount() {
-        setLocalNotification()
+        setReminder()
     }
     render() {
         const store = createStore(reducer, middleware)

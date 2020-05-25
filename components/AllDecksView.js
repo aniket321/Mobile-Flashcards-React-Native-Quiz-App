@@ -1,16 +1,16 @@
 import React, { Component } from "react"
-import { StyleSheet, Text, ScrollView, TouchableOpacity, View } from "react-native"
+import { StyleSheet, Text, ScrollView, TouchableOpacity } from "react-native"
 import { connect } from "react-redux"
 import { getDeckList } from "../utils/api"
 import { receiveDecks } from "../actions"
-import { AppLoading } from "expo"
 import Deck from './Deck'
 
 class AllDecksView extends Component {
-    state = {
-        ready: false
-    }
 
+    /**
+    * @description function to get list of decks from the constants file
+    *              used as DB and dispatch to the store and also set the Asyncstorage
+    */
     componentDidMount() {
         const { dispatch } = this.props
 
@@ -18,20 +18,10 @@ class AllDecksView extends Component {
             .then(decks => {
                 dispatch(receiveDecks(decks))
             })
-            .then(() =>
-                this.setState(() => ({
-                    ready: true
-                }))
-            )
     }
 
     render() {
         const { decks } = this.props
-        const { ready } = this.state
-
-        if (ready === false) {
-            return <AppLoading />
-        }
 
         if (decks) {
             return (

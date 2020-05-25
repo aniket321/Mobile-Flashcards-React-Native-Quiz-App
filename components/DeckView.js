@@ -1,11 +1,15 @@
 import React, { Component } from "react"
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import { connect } from "react-redux"
-import { gray, blue, white, green } from "../utils/colors"
-import { clearLocalNotification, setLocalNotification } from "../utils/helper"
+import { gray, green } from "../utils/colors"
+import { removeNotifications, setReminder } from "../utils/helper"
 import Button from './Button'
 
-class DeckDetails extends Component {
+/**
+*  Component to show individual deck view
+*/
+
+class DeckView extends Component {
     static navigationOptions = ({ navigation }) => {
         const { title } = navigation.state.params
 
@@ -36,7 +40,7 @@ class DeckDetails extends Component {
                         btnText="Start Quiz"
                         disabled={false}
                         onPress={() => {
-                            clearLocalNotification().then(setLocalNotification)
+                            removeNotifications().then(setReminder)
                             this.props.navigation.navigate("QuizView", {
                                 deck: deck
                             })
@@ -76,4 +80,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default connect(mapStateToProps)(DeckDetails)
+export default connect(mapStateToProps)(DeckView)

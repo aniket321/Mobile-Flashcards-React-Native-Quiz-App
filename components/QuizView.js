@@ -17,6 +17,10 @@ class QuizView extends Component {
         }
     }
 
+    /**
+    * @description state to track the score, active questionnumber and show question or show answer view.
+    */
+
     constructor(props) {
         super(props)
         this.state = {
@@ -26,10 +30,18 @@ class QuizView extends Component {
         }
     }
 
+    /**
+    * @description function to change the state of show answer when show answer or show question button is clicked
+    */
+
     toggleShowAnswer = () => {
         showAnswer = this.state.showAnswer
         this.setState({ showAnswer: !showAnswer })
     }
+
+    /**
+    * @description function to change the state to initail state to take the user to quiz view again
+    */
 
     handleRetakeQuiz = () => {
         this.setState(() => ({
@@ -37,6 +49,11 @@ class QuizView extends Component {
             questionNumber: 0,
         }))
     }
+
+    /**
+    * @description function to change the state of score and question number view
+    * @param {number} response
+    */
 
     handleSubmitAnswer = (response) => {
         let score = response ? this.state.score + 1 : this.state.score
@@ -82,7 +99,7 @@ class QuizView extends Component {
                         />
 
                         <Button
-                            onPress={() => this.props.goBack()}
+                            onPress={() => this.props.previousView()}
                             btnText="Go Back to deck"
                             disabled={false}
                         />
@@ -147,7 +164,7 @@ const mapStateToProps = (state, { navigation }) => {
 
     return {
         deck,
-        goBack: () => navigation.goBack()
+        previousView: () => navigation.goBack()
     }
 }
 
