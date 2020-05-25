@@ -26,7 +26,12 @@ Technologies:
 
 ## Screenshots:
 
-<img src="/assets/screenshots/AllDeckView.png" width="100" height="400">
+<img src="/assets/screenshots/AllDeckView.png" width="350" height="400">
+<img src="/assets/screenshots/AddCard.png" width="350" height="400">
+<img src="/assets/screenshots/AddDeck.png" width="350" height="400">
+<img src="/assets/screenshots/DeckView.png" width="350" height="400">
+<img src="/assets/screenshots/score.png" width="350" height="400">
+<img src="/assets/screenshots/error.png" width="350" height="400">
 
 ## Tested On:
 * App is tested on Android 9 device.
