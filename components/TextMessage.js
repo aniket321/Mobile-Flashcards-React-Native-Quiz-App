@@ -5,14 +5,11 @@ import { StyleSheet, Text } from "react-native"
 * @description component to show a text message on all views
 */
 
-export default class TextMessage extends Component {
-
-    render() {
-        const { message } = this.props
-        return (
-            <Text style={styles.text}>{message}</Text>
-        )
-    }
+const TextMessage = (props) => {
+    const { message } = props
+    return (
+        <Text style={styles.text}>{message}</Text>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -26,4 +23,5 @@ const styles = StyleSheet.create({
     }
 })
 
+export default TextMessage
 
