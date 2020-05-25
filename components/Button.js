@@ -6,25 +6,43 @@ import { white, blue, gray, black, purple } from '../utils/colors'
 * @description Customized button to use on all views
 */
 
-export default class Button extends Component {
+const Button = (props) => {
+    const { onPress, disabled, btnText } = props
 
-    render() {
-        const { onPress, disabled, btnText } = this.props
-        return (
-            <TouchableOpacity
-                style={[styles.button, disabled && styles.disabledBtn]}
-                onPress={onPress}
-                disabled={disabled}
+    return (
+        <TouchableOpacity
+            style={[styles.button, disabled && styles.disabledBtn]}
+            onPress={onPress}
+            disabled={disabled}
+        >
+            <Text
+                style={styles.btnText}
             >
-                <Text
-                    style={styles.btnText}
-                >
-                    {btnText}
-                </Text>
-            </TouchableOpacity>
-        )
-    }
+                {btnText}
+            </Text>
+        </TouchableOpacity>
+    )
 }
+
+// export default class Button extends Component {
+
+//     render() {
+//         const { onPress, disabled, btnText } = this.props
+//         return (
+//             <TouchableOpacity
+//                 style={[styles.button, disabled && styles.disabledBtn]}
+//                 onPress={onPress}
+//                 disabled={disabled}
+//             >
+//                 <Text
+//                     style={styles.btnText}
+//                 >
+//                     {btnText}
+//                 </Text>
+//             </TouchableOpacity>
+//         )
+//     }
+// }
 
 const styles = StyleSheet.create({
     button: {
@@ -53,5 +71,7 @@ const styles = StyleSheet.create({
         fontWeight: "600"
     }
 })
+
+export default Button
 
 
