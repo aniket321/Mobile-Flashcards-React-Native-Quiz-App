@@ -24,6 +24,10 @@ Technologies:
 * Download Expo app and the scan the QR code to run the app.
 * If android emulator is configured, app can run on the emulator as well
 
+## Screenshots:
+
+![Alt text](/assets/screenshots/AllDeckView.png?raw=true "Optional Title")
+
 ## Tested On:
 * App is tested on Android 9 device.
 
