@@ -9,6 +9,13 @@ import Button from './Button'
 import TextMessage from './TextMessage'
 
 class QuizView extends Component {
+    static navigationOptions = ({ navigation }) => {
+        const { title } = navigation.state.params.deck
+
+        return {
+            title: title + " Quiz"
+        }
+    }
 
     constructor(props) {
         super(props)
@@ -135,6 +142,14 @@ class QuizView extends Component {
     }
 }
 
+const mapStateToProps = (state, { navigation }) => {
+    const { deck } = navigation.state.params
+
+    return {
+        deck,
+        goBack: () => navigation.goBack()
+    }
+}
 
 const styles = StyleSheet.create({
     questionContainer: {
@@ -160,4 +175,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default connect()(QuizView)
+export default connect(mapStateToProps)(QuizView)
